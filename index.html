@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Apresentação Financeira – Escola Carlos Gomes</title>
+
+    <!-- Fonte BRN UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- STYLE.CSS EXTERNO -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- ====================== -->
+    <!-- TIMELINE PÍLULAS (BRN UI) -->
+    <!-- ====================== -->
+
+    <div class="timeline">
+        <div class="timeline-pill active" data-slide="0">Visão Geral</div>
+        <div class="timeline-pill" data-slide="1">PDDE Manutenção</div>
+        <div class="timeline-pill" data-slide="2">PDDE Qualidade</div>
+        <div class="timeline-pill" data-slide="3">Fardamento</div>
+        <div class="timeline-pill" data-slide="4">PEH</div>
+        <div class="timeline-pill" data-slide="4">Gás</div>
+        <div class="timeline-pill" data-slide="5">Internet</div>
+        <div class="timeline-pill" data-slide="6">Parque Aquático</div>
+        <div class="timeline-pill" data-slide="7">Gin./Quadra</div>
+        <div class="timeline-pill" data-slide="8">PMM</div>
+        <div class="timeline-pill" data-slide="9">PNAE</div>
+        <div class="timeline-pill" data-slide="10">Conclusões</div>
+    </div>
+
+    <!-- ====================== -->
+    <!-- CONTAINER DOS SLIDES -->
+    <!-- ====================== -->
+
+    <div class="slides-container">
+
+        <!-- ====================== -->
+        <!-- SLIDE 1 — VISÃO GERAL -->
+        <!-- ====================== -->
+
+        <section class="slide active" id="slide0">
+            <h1>Visão Geral Financeira</h1>
+
+            <div class="chart-wrapper">
+                <div class="chart-container">
+                    <canvas id="chart-geral"></canvas>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <button class="accordion-btn">Detalhamento Geral</button>
+                <div class="accordion-content">
+                    <p><strong>Saldo Reprogramado Total:</strong> R$ 122.727,26</p>
+                    <p><strong>Créditos 2025.2:</strong> R$ 256.695,00</p>
+                    <p><strong>Saldo Inicial Geral:</strong> R$ 384.422,26</p>
+                    <p><strong>Despesas Gerais:</strong> R$ 288.471,20</p>
+                    <hr>
+                    <p style="color: #e74c3c;">Este slide reúne o consolidado financeiro de todos os programas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================== -->
+        <!-- SLIDE 2 — PDDE MANUTENÇÃO -->
+        <!-- ====================== -->
+
+        <section class="slide" id="slide1">
+            <h1>PDDE – Manutenção/Básico</h1>
+
+            <div class="chart-wrapper">
+                <div class="chart-container">
+                    <canvas id="chart-pdde-manut"></canvas>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <button class="accordion-btn">Notas e Gastos</button>
+                <div class="accordion-content" id="detalhe-pdde-manut">
+                    <!-- Conteúdo será inserido automaticamente pelo JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================== -->
+        <!-- SLIDE 3 — QUALIDADE -->
+        <!-- ====================== -->
+
+        <section class="slide" id="slide2">
+            <h1>PDDE – Qualidade / Educ. Conectada</h1>
+
+            <div class="chart-wrapper">
+                <div class="chart-container">
+                    <canvas id="chart-qualidade"></canvas>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <button class="accordion-btn">Notas e Gastos</button>
+                <div class="accordion-content" id="detalhe-qualidade"></div>
+            </div>
+        </section>
+
+        <!-- ====================== -->
+        <!-- SLIDE 4 — FARDAMENTO -->
+        <!-- ====================== -->
+
+        <section class="slide" id="slide3">
+            <h1>Escola da Hora – Fardamento</h1>
+
+            <div class="chart-wrapper">
+                <div class="chart-container">
+                    <canvas id="chart-fardamento"></canvas>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <button class="accordion-btn">Notas e Gastos</button>
+                <div class="accordion-content" id="detalhe-fardamento"></div>
+            </div>
+        </section>
+
+        <!-- ====================== -->
+        <!-- SLIDE 5 — PREDIAL -->
+        <!-- ====================== -->
+
+        <section class="slide" id="slide4">
+            <h1>Escola da Hora – Manutenção Predial (Custeio + Capital)</h1>
+
+            <div class="chart-wrapper">
+                <div class="chart-container">
+                    <canvas id="chart-predial"></canvas>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <button class="accordion-btn">Notas e Gastos</button>
+                <div class="accordion-content" id="detalhe-predial"></div>
+            </div>
+        </section>
+
+        <!-- ====================== -->
+        <!-- SLIDE 6 — GÁS -->
+        <!-- ====================== -->
+
+        <section class="slide" id="slide5">
+            <h1>Escola da Hora – Internet (Gás)</h1>
+
+            <div class="chart-wrapper">
+                <div class="chart-container">
+                    <canvas id="chart-gas"></canvas>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <button class="accordion-btn">Notas e Gastos</button>
+                <div class="accordion-content" id="detalhe-gas"></div>
+            </div>
+        </section>
+
+        <!-- ====================== -->
+        <!-- SLIDE 7 — INTERNET -->
+        <!-- ====================== -->
+
+        <section class="slide" id="slide6">
+            <h1>Escola da Hora – Internet (WEB)</h1>
+
+            <div class="chart-wrapper">
+                <div class="chart-container">
+                    <canvas id="chart-internet"></canvas>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <button class="accordion-btn">Notas e Gastos</button>
+                <div class="accordion-content" id="detalhe-internet"></div>
+            </div>
+        </section>
+
+        <!-- ====================== -->
+        <!-- SLIDE 8 — PARQUE AQUÁTICO -->
+        <!-- ====================== -->
+
+        <section class="slide" id="slide7">
+            <h1>Parque Aquático</h1>
+
+            <div class="chart-wrapper">
+                <div class="chart-container">
+                    <canvas id="chart-parque"></canvas>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <button class="accordion-btn">Notas e Gastos</button>
+                <div class="accordion-content" id="detalhe-parque"></div>
+            </div>
+        </section>
+
+        <!-- ====================== -->
+        <!-- SLIDE 9 — GINÁSIO / QUADRA -->
+        <!-- ====================== -->
+
+        <section class="slide" id="slide8">
+            <h1>Ginásio / Quadra Descoberta</h1>
+
+            <div class="chart-wrapper">
+                <div class="chart-container">
+                    <canvas id="chart-ginasio"></canvas>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <button class="accordion-btn">Notas e Gastos</button>
+                <div class="accordion-content" id="detalhe-ginasio"></div>
+            </div>
+        </section>
+
+        <!-- ====================== -->
+        <!-- SLIDE 10 — PMM -->
+        <!-- ====================== -->
+
+        <section class="slide" id="slide9">
+            <h1>PMM – Programa Mais Merenda</h1>
+
+            <div class="chart-wrapper">
+                <div class="chart-container">
+                    <canvas id="chart-pmm"></canvas>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <button class="accordion-btn">Notas e Gastos</button>
+                <div class="accordion-content" id="detalhe-pmm"></div>
+            </div>
+        </section>
+
+        <!-- ====================== -->
+        <!-- SLIDE 11 — PNAE -->
+        <!-- ====================== -->
+
+        <section class="slide" id="slide10">
+            <h1>PNAE – Alimentação Escolar</h1>
+
+            <div class="chart-wrapper">
+                <div class="chart-container">
+                    <canvas id="chart-pnae"></canvas>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <button class="accordion-btn">Notas e Gastos</button>
+                <div class="accordion-content" id="detalhe-pnae"></div>
+            </div>
+        </section>
+
+        <!-- ====================== -->
+        <!-- SLIDE 12 — CONCLUSÕES -->
+        <!-- ====================== -->
+
+        <section class="slide" id="slide11">
+            <h1>Conclusões e Recomendações</h1>
+
+            <div class="chart-wrapper">
+                <p>Espaço para destacar:</p>
+                <ul>
+                    <li>Transparência na gestão financeira</li>
+                    <li>Organização das notas e documentos</li>
+                    <li>Equilíbrio entre custeio e capital</li>
+                    <li>Uso estratégico dos recursos federais</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ============= -->
+    <!-- APP.JS EXTERNO -->
+    <!-- ============= -->
+    <script src="app.js"></script>
+
+</body>
+</html>
