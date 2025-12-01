@@ -103,8 +103,8 @@ internet.saldoFinal = internet.saldoInicial - internet.despesas;
 // PARQUE AQUÁTICO
 // =======================
 const parque = {
-    saldoInicial: -241.39,
-    despesas: 8446.50,
+    saldoInicial: 10540.45 + 10000,
+    despesas: 8446.5,
 };
 parque.saldoFinal = parque.saldoInicial - parque.despesas;
 
@@ -112,20 +112,29 @@ parque.saldoFinal = parque.saldoInicial - parque.despesas;
 // GINÁSIO / QUADRA
 // =======================
 const ginasio = {
-    saldoInicial: 2320.00 + 1000.00 + 1500.00,
-    despesas: 0,
+    saldoInicial: 1882 + 1500,
+    despesas: 1260 + 1789.25,
 };
 ginasio.saldoFinal = ginasio.saldoInicial - ginasio.despesas;
+
+// =======================
+// QUADRA DESCOBERTA
+// =======================
+const quadra = {
+    saldoInicial: 2000 + 1000,
+    despesas: 2000,
+};
+quadra.saldoFinal = quadra.saldoInicial - quadra.despesas;
 
 // =======================
 // PMM – Mais Merenda
 // =======================
 const pmm = {
-    saldoInicial: 1882.00 + 93637.82,
+    saldoInicial: 55505.99 + 93637.82,
     despesas:
-        13768.70 + 10102.00 + 9634.00 + 10990.00 + 11432.00 +
-        9414.10 + 13768.70 + 1666.00 + 19189.60 + 10102.00 +
-        13019.95 + 8424.74 + 2734.80 + 16145.75,
+        13768.7 + 10102 + 9634 + 10990 + 11432 +
+        9414.1 + 13768.7 + 1666 + 19189.6 + 10102 +
+        13019.95 + 8424.74 + 2734.8 + 16145.75,
 };
 pmm.saldoFinal = pmm.saldoInicial - pmm.despesas;
 
@@ -133,10 +142,10 @@ pmm.saldoFinal = pmm.saldoInicial - pmm.despesas;
 // PNAE
 // =======================
 const pnae = {
-    saldoInicial: 2000.00 + 55505.99 + 27843.04 + 132652.18,
+    saldoInicial: 27843.04 +132652.18,
     despesas:
         10402.77 + 2922.81 + 2254.98 + 17923.05 + 2992.81 +
-        7581.20 + 20961.85 + 22147.80 + 9848.66,
+        7581.2 + 20961.85 + 22147.8 + 9848.66,
 };
 pnae.saldoFinal = pnae.saldoInicial - pnae.despesas;
 
@@ -185,6 +194,7 @@ gerarGrafico("chart-internet", "Internet", internet);
 gerarGrafico("chart-gas", "Gás", gas);
 gerarGrafico("chart-parque", "Parque Aquático", parque);
 gerarGrafico("chart-ginasio", "Ginásio / Quadra", ginasio);
+gerarGrafico("chart-quadra", "Quadra Descoberta", quadra);
 gerarGrafico("chart-pmm", "PMM – Mais Merenda", pmm);
 gerarGrafico("chart-pnae", "PNAE – Alimentação Escolar", pnae);
 
@@ -450,27 +460,197 @@ document.getElementById("detalhe-internet").innerHTML = `
 `;
 
 document.getElementById("detalhe-parque").innerHTML = `
-    <p><strong>Saldo Inicial:</strong> ${formatarMoeda(parque.saldoInicial)}</p>
+    <p><strong>⭐Saldo Inicial:</strong> ${formatarMoeda(parque.saldoInicial)}
+            <span style="
+                color: #7f8c8d;
+                font-size: 0.9em;
+                font-style: italic;
+                margin-left: 5px;
+            ">
+                ← saldo reprogramado + saldo creditado.
+            </span> </p>
+
     <p><strong>Despesas:</strong> ${formatarMoeda(parque.despesas)}</p>
-    <p><strong>Saldo Final:</strong> ${formatarMoeda(parque.saldoFinal)}</p>
+
+    <div style="
+                background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+                padding: 20px;
+                border-radius: 10px;
+                border-left: 5px solid #27ae60;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                margin-top: 20px;
+                text-align: center;
+            ">
+                <p style="
+                    margin: 0;
+                    font-size: 1.4em;
+                    font-weight: bold;
+                    color: #2c3e50;
+                ">
+                    💰 SALDO FINAL GERAL: 
+                    <span style="color: #27ae60; font-size: 1.5em;">
+                        ${formatarMoeda(parque.saldoFinal)}
+                    </span>
+                </p>
+                <p style="margin: 8px 0 0 0; color: #7f8c8d; font-style: italic;">
+                    Valor total disponível para utilização
+                </p>
+            </div>
+`;
+document.getElementById("detalhe-ginasio").innerHTML = `
+    <p><strong>⭐Saldo Inicial:</strong> ${formatarMoeda(ginasio.saldoInicial)}
+            <span style="
+                color: #7f8c8d;
+                font-size: 0.9em;
+                font-style: italic;
+                margin-left: 5px;
+            ">
+                ← saldo reprogramado + saldo creditado.
+            </span> </p>
+
+    <p><strong>Despesas:</strong> ${formatarMoeda(ginasio.despesas)}</p>
+
+    <div style="
+                background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+                padding: 20px;
+                border-radius: 10px;
+                border-left: 5px solid #27ae60;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                margin-top: 20px;
+                text-align: center;
+            ">
+                <p style="
+                    margin: 0;
+                    font-size: 1.4em;
+                    font-weight: bold;
+                    color: #2c3e50;
+                ">
+                    💰 SALDO FINAL GERAL: 
+                    <span style="color: #27ae60; font-size: 1.5em;">
+                        ${formatarMoeda(ginasio.saldoFinal)}
+                    </span>
+                </p>
+                <p style="margin: 8px 0 0 0; color: #7f8c8d; font-style: italic;">
+                    Valor total disponível para utilização
+                </p>
+            </div>
 `;
 
-document.getElementById("detalhe-ginasio").innerHTML = `
-    <p><strong>Saldo Inicial:</strong> ${formatarMoeda(ginasio.saldoInicial)}</p>
-    <p><strong>Despesas:</strong> ${formatarMoeda(ginasio.despesas)}</p>
-    <p><strong>Saldo Final:</strong> ${formatarMoeda(ginasio.saldoFinal)}</p>
+document.getElementById("detalhe-quadra").innerHTML = `
+    <p><strong>⭐Saldo Inicial:</strong> ${formatarMoeda(quadra.saldoInicial)}
+            <span style="
+                color: #7f8c8d;
+                font-size: 0.9em;
+                font-style: italic;
+                margin-left: 5px;
+            ">
+                ← saldo reprogramado + saldo creditado.
+            </span> </p>
+
+    <p><strong>Despesas:</strong> ${formatarMoeda(quadra.despesas)}</p>
+
+    <div style="
+                background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+                padding: 20px;
+                border-radius: 10px;
+                border-left: 5px solid #27ae60;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                margin-top: 20px;
+                text-align: center;
+            ">
+                <p style="
+                    margin: 0;
+                    font-size: 1.4em;
+                    font-weight: bold;
+                    color: #2c3e50;
+                ">
+                    💰 SALDO FINAL GERAL: 
+                    <span style="color: #27ae60; font-size: 1.5em;">
+                        ${formatarMoeda(quadra.saldoFinal)}
+                    </span>
+                </p>
+                <p style="margin: 8px 0 0 0; color: #7f8c8d; font-style: italic;">
+                    Valor total disponível para utilização
+                </p>
+            </div>
 `;
 
 document.getElementById("detalhe-pmm").innerHTML = `
-    <p><strong>Saldo Inicial:</strong> ${formatarMoeda(pmm.saldoInicial)}</p>
+    <p><strong>⭐Saldo Inicial:</strong> ${formatarMoeda(pmm.saldoInicial)}
+            <span style="
+                color: #7f8c8d;
+                font-size: 0.9em;
+                font-style: italic;
+                margin-left: 5px;
+            ">
+                ← saldo reprogramado + saldo creditado.
+            </span> </p>
+
     <p><strong>Despesas:</strong> ${formatarMoeda(pmm.despesas)}</p>
-    <p><strong>Saldo Final:</strong> ${formatarMoeda(pmm.saldoFinal)}</p>
+
+    <div style="
+                background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+                padding: 20px;
+                border-radius: 10px;
+                border-left: 5px solid #27ae60;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                margin-top: 20px;
+                text-align: center;
+            ">
+                <p style="
+                    margin: 0;
+                    font-size: 1.4em;
+                    font-weight: bold;
+                    color: #2c3e50;
+                ">
+                    💰 SALDO FINAL GERAL: 
+                    <span style="color: #27ae60; font-size: 1.5em;">
+                        ${formatarMoeda(pmm.saldoFinal)}
+                    </span>
+                </p>
+                <p style="margin: 8px 0 0 0; color: #7f8c8d; font-style: italic;">
+                    Valor total disponível para utilização
+                </p>
+            </div>
 `;
 
 document.getElementById("detalhe-pnae").innerHTML = `
-    <p><strong>Saldo Inicial:</strong> ${formatarMoeda(pnae.saldoInicial)}</p>
+    <p><strong>⭐Saldo Inicial:</strong> ${formatarMoeda(pnae.saldoInicial)}
+            <span style="
+                color: #7f8c8d;
+                font-size: 0.9em;
+                font-style: italic;
+                margin-left: 5px;
+            ">
+                ← saldo reprogramado + saldo creditado.
+            </span> </p>
+
     <p><strong>Despesas:</strong> ${formatarMoeda(pnae.despesas)}</p>
-    <p><strong>Saldo Final:</strong> ${formatarMoeda(pnae.saldoFinal)}</p>
+
+    <div style="
+                background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+                padding: 20px;
+                border-radius: 10px;
+                border-left: 5px solid #27ae60;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                margin-top: 20px;
+                text-align: center;
+            ">
+                <p style="
+                    margin: 0;
+                    font-size: 1.4em;
+                    font-weight: bold;
+                    color: #2c3e50;
+                ">
+                    💰 SALDO FINAL GERAL: 
+                    <span style="color: #27ae60; font-size: 1.5em;">
+                        ${formatarMoeda(pnae.saldoFinal)}
+                    </span>
+                </p>
+                <p style="margin: 8px 0 0 0; color: #7f8c8d; font-style: italic;">
+                    Valor total disponível para utilização
+                </p>
+            </div>
 `;
 
 /* ============================================================
